@@ -22,10 +22,15 @@
         :root {
             --bg: #FAF8F5;
             --bg-alt: #F2EFE9;
+            --bg-accent: #B85C38;
+            --bg-accent-light: #F5E6E0;
             --text: #2C2C2C;
             --text-secondary: #6B6B6B;
+            --text-on-accent: #FAF8F5;
             --accent: #B85C38;
             --accent-hover: #9A4D30;
+            --olive: #5C6B4A;
+            --gold: #C9A959;
             --border: #E5E0D8;
             --serif: 'Instrument Serif', Georgia, serif;
             --sans: 'Source Sans 3', -apple-system, sans-serif;
@@ -73,6 +78,14 @@
             font-size: 1.5rem;
             text-decoration: none;
             color: var(--text);
+            background: var(--accent);
+            color: var(--text-on-accent);
+            padding: 0.35rem 0.75rem;
+            transition: background 0.2s;
+        }
+        
+        .logo:hover {
+            background: var(--accent-hover);
         }
 
         nav a {
@@ -103,6 +116,7 @@
 
         .hero h1 em {
             font-style: italic;
+            color: var(--accent);
         }
 
         .hero p {
@@ -152,16 +166,53 @@
             font-family: var(--serif);
             font-size: 1.5rem;
             margin-bottom: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .project:hover .project-name {
+            color: var(--accent);
         }
 
         .project-type {
             font-size: 0.85rem;
-            color: var(--text-secondary);
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .project-desc {
             color: var(--text-secondary);
             padding-top: 0.25rem;
+        }
+        
+        /* Featured project */
+        .project.featured {
+            background: var(--bg-accent);
+            color: var(--text-on-accent);
+            margin: 0 -2rem;
+            padding: 2.5rem 2rem;
+            border-bottom: none;
+        }
+        
+        .project.featured .project-name {
+            color: var(--text-on-accent);
+        }
+        
+        .project.featured:hover .project-name {
+            color: var(--gold);
+        }
+        
+        .project.featured .project-type {
+            color: var(--gold);
+        }
+        
+        .project.featured .project-desc {
+            color: rgba(250, 248, 245, 0.85);
+        }
+        
+        .project.featured:hover {
+            background: var(--accent-hover);
         }
 
         /* About */
@@ -265,7 +316,7 @@
         <section id="work">
             <div class="section-label">Selected Work</div>
 
-            <a href="https://void-pi-azure.vercel.app" class="project">
+            <a href="https://void-pi-azure.vercel.app" class="project featured">
                 <div>
                     <div class="project-name">Void</div>
                     <div class="project-type">Web App</div>
