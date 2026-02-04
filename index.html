@@ -77,15 +77,12 @@
             font-family: var(--serif);
             font-size: 1.5rem;
             text-decoration: none;
-            color: var(--text);
-            background: var(--accent);
-            color: var(--text-on-accent);
-            padding: 0.35rem 0.75rem;
-            transition: background 0.2s;
+            color: var(--accent);
+            transition: color 0.2s;
         }
         
         .logo:hover {
-            background: var(--accent-hover);
+            color: var(--accent-hover);
         }
 
         nav a {
@@ -186,33 +183,16 @@
             padding-top: 0.25rem;
         }
         
-        /* Featured project */
+        /* Featured project — subtle left accent */
         .project.featured {
-            background: var(--bg-accent);
-            color: var(--text-on-accent);
-            margin: 0 -2rem;
-            padding: 2.5rem 2rem;
-            border-bottom: none;
-        }
-        
-        .project.featured .project-name {
-            color: var(--text-on-accent);
-        }
-        
-        .project.featured:hover .project-name {
-            color: var(--gold);
-        }
-        
-        .project.featured .project-type {
-            color: var(--gold);
-        }
-        
-        .project.featured .project-desc {
-            color: rgba(250, 248, 245, 0.85);
+            border-left: 3px solid var(--accent);
+            padding-left: calc(2rem - 3px);
+            margin-left: -2rem;
+            padding-left: 2rem;
         }
         
         .project.featured:hover {
-            background: var(--accent-hover);
+            margin-left: -2rem;
         }
 
         /* About */
