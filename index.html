@@ -256,7 +256,7 @@
             color: var(--text);
         }
 
-        /* Card Grid */
+        /* Filter + Card Grid */
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -267,7 +267,7 @@
         .filter-btn {
             padding: 0.5rem 1rem;
             border: 1px solid var(--border);
-            background: white;
+            background: var(--bg);
             border-radius: 999px;
             font-family: var(--sans);
             font-size: 0.85rem;
@@ -277,16 +277,8 @@
             transition: all 0.2s;
         }
         
-        .filter-btn:hover {
-            border-color: var(--accent);
-            color: var(--text);
-        }
-        
-        .filter-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-        }
+        .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+        .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
         
         .card-grid {
             display: grid;
@@ -304,71 +296,28 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
         
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-        }
-        
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
         .card[hidden] { display: none; }
         
-        .card-thumb {
-            aspect-ratio: 5/3;
-            overflow: hidden;
-            background: var(--bg-alt);
-        }
+        .card-thumb { aspect-ratio: 5/3; overflow: hidden; background: var(--bg-alt); }
+        .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
         
-        .card-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .card-body { padding: 1rem; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .card h3 { font-family: var(--serif); font-size: 1.1rem; margin: 0; }
         
-        .card-body {
-            padding: 1rem;
-        }
+        .tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 4px; }
+        .tag.utility { background: #E8F5E9; color: #2E7D32; }
+        .tag.tool { background: #FFF3E0; color: #E65100; }
+        .tag.game { background: #FCE4EC; color: #C2185B; }
+        .tag.productivity { background: #E3F2FD; color: #1565C0; }
+        .tag.visualization { background: #F3E5F5; color: #7B1FA2; }
         
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .card h3 {
-            font-family: var(--serif);
-            font-size: 1.1rem;
-            margin: 0;
-        }
-        
-        .card-tag {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            background: var(--bg-alt);
-            color: var(--text-secondary);
-        }
-        
-        .card-tag.utility { background: #E8F5E9; color: #2E7D32; }
-        .card-tag.tool { background: #FFF3E0; color: #E65100; }
-        .card-tag.game { background: #FCE4EC; color: #C2185B; }
-        .card-tag.productivity { background: #E3F2FD; color: #1565C0; }
-        .card-tag.visualization { background: #F3E5F5; color: #7B1FA2; }
-        
-        .card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin: 0;
-            line-height: 1.5;
-        }
+        .card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
 
         /* Responsive */
         @media (max-width: 960px) {
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
         }
         
         @media (max-width: 768px) {
@@ -391,9 +340,7 @@
                 height: 160px;
             }
             
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
+            .card-grid { grid-template-columns: 1fr; }
 
             .about-content {
                 grid-template-columns: 1fr;
@@ -446,134 +393,87 @@
                 <a href="https://void-pi-azure.vercel.app" class="card" data-category="tool" target="_blank">
                     <div class="card-thumb"><img src="screenshots/void.png" alt="Void"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>Void</h3>
-                            <span class="card-tag tool">Tool</span>
-                        </div>
+                        <div class="card-header"><h3>Void</h3><span class="tag tool">Tool</span></div>
                         <p>Therapeutic typing where words fade into nothing. Vent, release, let go.</p>
                     </div>
                 </a>
-
                 <a href="https://the-decider-rho.vercel.app" class="card" data-category="tool" target="_blank">
                     <div class="card-thumb"><img src="screenshots/decider.png" alt="The Decider"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>The Decider</h3>
-                            <span class="card-tag tool">Tool</span>
-                        </div>
+                        <div class="card-header"><h3>The Decider</h3><span class="tag tool">Tool</span></div>
                         <p>Psychology-based decision helper. Uses real frameworks, not coin flips.</p>
                     </div>
                 </a>
-
                 <a href="https://meeting-cost-calculator-one.vercel.app" class="card" data-category="productivity" target="_blank">
                     <div class="card-thumb"><img src="screenshots/meeting.png" alt="Meeting Cost Calculator"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>Meeting Cost Calculator</h3>
-                            <span class="card-tag productivity">Productivity</span>
-                        </div>
+                        <div class="card-header"><h3>Meeting Cost Calculator</h3><span class="tag productivity">Productivity</span></div>
                         <p>See what meetings actually cost in real-time. Time is money.</p>
                     </div>
                 </a>
-
                 <a href="https://reflex-psi.vercel.app" class="card" data-category="game" target="_blank">
                     <div class="card-thumb"><img src="screenshots/reflex.png" alt="Reflex"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>Reflex</h3>
-                            <span class="card-tag game">Game</span>
-                        </div>
+                        <div class="card-header"><h3>Reflex</h3><span class="tag game">Game</span></div>
                         <p>Test and track your reaction time. Simple and slightly addictive.</p>
                     </div>
                 </a>
-
                 <a href="https://focus-mode-zeta.vercel.app" class="card" data-category="productivity" target="_blank">
                     <div class="card-thumb"><img src="screenshots/focus.png" alt="Focus Mode"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>Focus Mode</h3>
-                            <span class="card-tag productivity">Productivity</span>
-                        </div>
+                        <div class="card-header"><h3>Focus Mode</h3><span class="tag productivity">Productivity</span></div>
                         <p>An anti-scroll challenge. Stare without touching. Harder than it sounds.</p>
                     </div>
                 </a>
-
                 <a href="https://year-progress-ten.vercel.app" class="card" data-category="visualization" target="_blank">
                     <div class="card-thumb"><img src="screenshots/year.png" alt="Year Progress"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>Year Progress</h3>
-                            <span class="card-tag visualization">Visualization</span>
-                        </div>
+                        <div class="card-header"><h3>Year Progress</h3><span class="tag visualization">Visualization</span></div>
                         <p>How much of the year has passed? A slightly existential progress bar.</p>
                     </div>
                 </a>
-
                 <a href="https://invoice-generator-dun-nine.vercel.app" class="card" data-category="tool" target="_blank">
                     <div class="card-thumb"><img src="screenshots/invoice.png" alt="Invoice Generator"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>Invoice Generator</h3>
-                            <span class="card-tag tool">Tool</span>
-                        </div>
+                        <div class="card-header"><h3>Invoice Generator</h3><span class="tag tool">Tool</span></div>
                         <p>Create professional invoices in seconds. Export to PDF. No account needed.</p>
                     </div>
                 </a>
-
                 <a href="https://tip-calculator-ten-omega.vercel.app" class="card" data-category="utility" target="_blank">
                     <div class="card-thumb"><img src="screenshots/tip.png" alt="Tip Calculator"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>Tip Calculator</h3>
-                            <span class="card-tag utility">Utility</span>
-                        </div>
+                        <div class="card-header"><h3>Tip Calculator</h3><span class="tag utility">Utility</span></div>
                         <p>Split bills fairly with custom tip percentages. Clean UI, instant math.</p>
                     </div>
                 </a>
-
                 <a href="https://qr-generator-ten-vert.vercel.app" class="card" data-category="utility" target="_blank">
                     <div class="card-thumb"><img src="screenshots/qr.png" alt="QR Generator"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>QR Generator</h3>
-                            <span class="card-tag utility">Utility</span>
-                        </div>
+                        <div class="card-header"><h3>QR Generator</h3><span class="tag utility">Utility</span></div>
                         <p>Generate QR codes instantly. Multiple sizes, download as PNG.</p>
                     </div>
                 </a>
-
                 <a href="https://og-craft-kappa.vercel.app" class="card" data-category="tool" target="_blank">
                     <div class="card-thumb"><img src="screenshots/ogcraft.png" alt="OG Craft"></div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h3>OG Craft</h3>
-                            <span class="card-tag tool">Tool</span>
-                        </div>
+                        <div class="card-header"><h3>OG Craft</h3><span class="tag tool">Tool</span></div>
                         <p>Preview Open Graph meta tags. See how links appear on social media.</p>
                     </div>
                 </a>
             </div>
         </section>
-
+        
         <script>
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const cards = document.querySelectorAll('.card');
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    const filter = btn.dataset.filter;
-                    cards.forEach(card => {
-                        if (filter === 'all' || card.dataset.category === filter) {
-                            card.hidden = false;
-                        } else {
-                            card.hidden = true;
-                        }
-                    });
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.card').forEach(card => {
+                    card.hidden = filter !== 'all' && card.dataset.category !== filter;
                 });
             });
+        });
         </script>
 
         <section id="about">
